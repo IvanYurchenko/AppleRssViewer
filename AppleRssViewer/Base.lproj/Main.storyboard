@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fi7-8y-brR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BeZ-kc-vz1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -57,6 +57,7 @@
                                     <outlet property="descriptionLabel" destination="Ktk-9y-3gi" id="iFQ-sT-Ja0"/>
                                     <outlet property="photoImageView" destination="q0I-UU-VYo" id="pW9-ba-ZpN"/>
                                     <outlet property="titleLabel" destination="t3B-fi-AXP" id="BFe-B3-Tb4"/>
+                                    <segue destination="RmC-ir-DRV" kind="show" id="xcY-Nj-gt8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -69,9 +70,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eyx-4H-Iua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="35.532233883058474"/>
+            <point key="canvasLocation" x="1103.2" y="35.532233883058474"/>
         </scene>
-        <!--Rss Item-->
+        <!--Title-->
         <scene sceneID="mHs-XT-JXw">
             <objects>
                 <viewController id="RmC-ir-DRV" customClass="RssItemViewController" customModule="AppleRssViewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,8 +84,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="naC-28-bjg">
-                                <rect key="frame" x="0.0" y="40" width="375" height="348.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="naC-28-bjg">
+                                <rect key="frame" x="0.0" y="72" width="375" height="348.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="YTr-n8-Dzy">
                                         <rect key="frame" x="27.5" y="0.0" width="320" height="320"/>
@@ -108,16 +109,33 @@
                             <constraint firstItem="naC-28-bjg" firstAttribute="leading" secondItem="LUS-iJ-TRU" secondAttribute="leading" id="xG3-q2-8PF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Rss Item" id="JCx-ib-Nhi"/>
+                    <navigationItem key="navigationItem" title="Title" id="4Jm-z5-IcE"/>
                     <connections>
                         <outlet property="photoImageView" destination="YTr-n8-Dzy" id="eA0-qN-UhZ"/>
                         <outlet property="textLabel" destination="NSX-fE-0JD" id="U4q-o2-3ug"/>
-                        <outlet property="titleLabel" destination="JCx-ib-Nhi" id="ide-0v-wfV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWY-Lg-LDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="36"/>
+            <point key="canvasLocation" x="1943" y="36"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mL6-f0-AhL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BeZ-kc-vz1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9DW-wM-t0z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fi7-8y-brR" kind="relationship" relationship="rootViewController" id="qk3-kp-9c3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WqV-nn-UbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="164" y="35.532233883058474"/>
         </scene>
     </scenes>
     <resources>
