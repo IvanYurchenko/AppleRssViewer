@@ -13,13 +13,13 @@
         <!--Feed-->
         <scene sceneID="Mdv-pG-akk">
             <objects>
-                <tableViewController id="fi7-8y-brR" sceneMemberID="viewController">
+                <tableViewController id="fi7-8y-brR" customClass="RssTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jM9-Mk-6oO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="CNB-ME-PGR">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="CNB-ME-PGR" customClass="RssTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CNB-ME-PGR" id="Qhv-bt-rE6">
@@ -65,7 +65,7 @@
         <!--Title-->
         <scene sceneID="mHs-XT-JXw">
             <objects>
-                <viewController id="RmC-ir-DRV" sceneMemberID="viewController">
+                <viewController id="RmC-ir-DRV" customClass="RssItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EVc-H6-u4a"/>
                         <viewControllerLayoutGuide type="bottom" id="UlD-fD-l0F"/>

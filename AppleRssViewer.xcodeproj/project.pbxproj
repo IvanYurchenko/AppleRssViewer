@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		878359B51EC18A1800E84A3F /* RssTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878359B41EC18A1800E84A3F /* RssTableViewController.swift */; };
+		878359B71EC18A4C00E84A3F /* RssItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878359B61EC18A4C00E84A3F /* RssItemViewController.swift */; };
+		878359B91EC18A5800E84A3F /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878359B81EC18A5800E84A3F /* RssItem.swift */; };
+		878359BF1EC1915800E84A3F /* RssTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878359BE1EC1915800E84A3F /* RssTableViewCell.swift */; };
 		87D788A61EC170C900D46674 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D788A51EC170C900D46674 /* AppDelegate.swift */; };
 		87D788AB1EC170C900D46674 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D788A91EC170C900D46674 /* Main.storyboard */; };
 		87D788AD1EC170C900D46674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87D788AC1EC170C900D46674 /* Assets.xcassets */; };
@@ -14,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		878359B41EC18A1800E84A3F /* RssTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssTableViewController.swift; sourceTree = "<group>"; };
+		878359B61EC18A4C00E84A3F /* RssItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssItemViewController.swift; sourceTree = "<group>"; };
+		878359B81EC18A5800E84A3F /* RssItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
+		878359BE1EC1915800E84A3F /* RssTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssTableViewCell.swift; sourceTree = "<group>"; };
 		87D788A21EC170C900D46674 /* AppleRssViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleRssViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D788A51EC170C900D46674 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87D788AA1EC170C900D46674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				87D788A51EC170C900D46674 /* AppDelegate.swift */,
+				878359B81EC18A5800E84A3F /* RssItem.swift */,
+				878359B41EC18A1800E84A3F /* RssTableViewController.swift */,
+				878359B61EC18A4C00E84A3F /* RssItemViewController.swift */,
+				878359BE1EC1915800E84A3F /* RssTableViewCell.swift */,
 				87D788A91EC170C900D46674 /* Main.storyboard */,
 				87D788AC1EC170C900D46674 /* Assets.xcassets */,
 				87D788AE1EC170C900D46674 /* LaunchScreen.storyboard */,
@@ -134,7 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878359B71EC18A4C00E84A3F /* RssItemViewController.swift in Sources */,
+				878359B51EC18A1800E84A3F /* RssTableViewController.swift in Sources */,
+				878359BF1EC1915800E84A3F /* RssTableViewCell.swift in Sources */,
 				87D788A61EC170C900D46674 /* AppDelegate.swift in Sources */,
+				878359B91EC18A5800E84A3F /* RssItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +314,7 @@
 				87D788B61EC170C900D46674 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
