@@ -10,4 +10,9 @@ import UIKit
 
 class RssTableViewCell: UITableViewCell {
     
+    //MARK: Properties
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var photoImageView: UIImageView!
+    
 }

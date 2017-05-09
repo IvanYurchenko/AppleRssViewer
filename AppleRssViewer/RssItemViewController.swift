@@ -10,4 +10,7 @@ import UIKit
 
 class RssItemViewController: UITableViewController {
     
+    @IBOutlet weak var titleLabel: UINavigationItem!
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var textLabel: UILabel!
 }

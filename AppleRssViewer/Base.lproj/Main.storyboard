@@ -44,9 +44,19 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02M-Cv-hYA">
+                                            <rect key="frame" x="100" y="71" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="descriptionLabel" destination="Ktk-9y-3gi" id="iFQ-sT-Ja0"/>
+                                    <outlet property="photoImageView" destination="q0I-UU-VYo" id="pW9-ba-ZpN"/>
+                                    <outlet property="titleLabel" destination="t3B-fi-AXP" id="BFe-B3-Tb4"/>
                                     <segue destination="RmC-ir-DRV" kind="show" identifier="ShowDetail" id="LvV-Tu-awQ"/>
                                 </connections>
                             </tableViewCell>
@@ -100,6 +110,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="JCx-ib-Nhi"/>
+                    <connections>
+                        <outlet property="photoImageView" destination="YTr-n8-Dzy" id="eA0-qN-UhZ"/>
+                        <outlet property="textLabel" destination="NSX-fE-0JD" id="U4q-o2-3ug"/>
+                        <outlet property="titleLabel" destination="JCx-ib-Nhi" id="ide-0v-wfV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWY-Lg-LDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
