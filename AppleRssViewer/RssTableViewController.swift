@@ -34,7 +34,7 @@ class RssTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of RssTableViewCell.")
         }
         
-        // Fetches the appropriate meal for the data source layout.
+        // Fetches the appropriate item for the data source layout.
         let item = items[indexPath.row]
         
         cell.titleLabel.text = item.title
@@ -53,6 +53,6 @@ class RssTableViewController: UITableViewController {
     private func loadItems() {
         items.removeAll()
         items.append(RssItem(title: "hi", text: "hello world! here", image: #imageLiteral(resourceName: "defaultPhoto")))
-        items.append(RssItem(title: "bye", text: "bye world. this is a very long description here. tralalalallalalasdfsdfsdfalla lsadfl asldf lasdfl asdlf lasdf lasdfl asdlf saldf ladsfl lsadfl sdf lsdf lsdf lsdlf lsdfl sdlf ldsf lsadfl ldsf", image: #imageLiteral(resourceName: "defaultPhoto")))
+        items.append(RssItem(title: "hello", text: "hello world. this is a very long description here. tralalalallalalasdfsdfsdfalla lsadfl asldf lasdfl asdlf lasdf lasdfl asdlf saldf ladsfl lsadfl sdf lsdf lsdf lsdlf lsdfl sdlf ldsf lsadfl ldsf", image: #imageLiteral(resourceName: "defaultPhoto")))
     }
 }
