@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RssItemViewController: UITableViewController, UINavigationControllerDelegate {
+class RssItemViewController: UIViewController, UINavigationControllerDelegate {
     
     //MARK: Properties
     @IBOutlet weak var titleLabel: UINavigationItem!
