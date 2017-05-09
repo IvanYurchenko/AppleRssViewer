@@ -10,10 +10,12 @@ import UIKit
 
 class RssItem {
     var title: String
+    var text: String
     var image: UIImage?
     
-    init?(title: String, image: UIImage?) {
+    init(title: String, text: String, image: UIImage?) {
         self.title = title
+        self.text = text
         self.image = image
     }
 }

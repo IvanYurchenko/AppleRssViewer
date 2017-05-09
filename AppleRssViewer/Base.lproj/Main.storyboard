@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="at4-ZW-Ioi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fi7-8y-brR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,41 +13,41 @@
         <!--Feed-->
         <scene sceneID="Mdv-pG-akk">
             <objects>
-                <tableViewController id="fi7-8y-brR" customClass="RssTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jM9-Mk-6oO">
+                <tableViewController id="fi7-8y-brR" customClass="RssTableViewController" customModule="AppleRssViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="jM9-Mk-6oO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="CNB-ME-PGR" customClass="RssTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="RssTableViewCell" id="CNB-ME-PGR" customClass="RssTableViewCell" customModule="AppleRssViewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CNB-ME-PGR" id="Qhv-bt-rE6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q0I-UU-VYo">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="q0I-UU-VYo">
                                             <rect key="frame" x="8" y="8" width="84" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3B-fi-AXP">
-                                            <rect key="frame" x="100" y="8" width="65" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <rect key="frame" x="100" y="8" width="267" height="19"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02M-Cv-hYA">
+                                            <rect key="frame" x="100" y="25" width="267" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktk-9y-3gi">
-                                            <rect key="frame" x="100" y="35" width="108" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02M-Cv-hYA">
-                                            <rect key="frame" x="100" y="71" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                            <rect key="frame" x="100" y="45" width="267" height="67"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -57,7 +57,6 @@
                                     <outlet property="descriptionLabel" destination="Ktk-9y-3gi" id="iFQ-sT-Ja0"/>
                                     <outlet property="photoImageView" destination="q0I-UU-VYo" id="pW9-ba-ZpN"/>
                                     <outlet property="titleLabel" destination="t3B-fi-AXP" id="BFe-B3-Tb4"/>
-                                    <segue destination="RmC-ir-DRV" kind="show" identifier="ShowDetail" id="LvV-Tu-awQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="164" y="35.532233883058474"/>
         </scene>
-        <!--Title-->
+        <!--Rss Item-->
         <scene sceneID="mHs-XT-JXw">
             <objects>
-                <viewController id="RmC-ir-DRV" customClass="RssItemViewController" sceneMemberID="viewController">
+                <viewController id="RmC-ir-DRV" customClass="RssItemViewController" customModule="AppleRssViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EVc-H6-u4a"/>
                         <viewControllerLayoutGuide type="bottom" id="UlD-fD-l0F"/>
@@ -85,9 +84,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="naC-28-bjg">
-                                <rect key="frame" x="0.0" y="84" width="375" height="348.5"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="348.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" translatesAutoresizingMaskIntoConstraints="NO" id="YTr-n8-Dzy">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="YTr-n8-Dzy">
                                         <rect key="frame" x="27.5" y="0.0" width="320" height="320"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YTr-n8-Dzy" secondAttribute="height" multiplier="1:1" id="b7J-a6-5aR"/>
@@ -109,7 +108,7 @@
                             <constraint firstItem="naC-28-bjg" firstAttribute="leading" secondItem="LUS-iJ-TRU" secondAttribute="leading" id="xG3-q2-8PF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="JCx-ib-Nhi"/>
+                    <navigationItem key="navigationItem" title="Rss Item" id="JCx-ib-Nhi"/>
                     <connections>
                         <outlet property="photoImageView" destination="YTr-n8-Dzy" id="eA0-qN-UhZ"/>
                         <outlet property="textLabel" destination="NSX-fE-0JD" id="U4q-o2-3ug"/>
@@ -118,25 +117,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWY-Lg-LDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="839" y="36"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="k1W-Sd-qXY">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="at4-ZW-Ioi" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="opT-nc-Qu3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="fi7-8y-brR" kind="relationship" relationship="rootViewController" id="CKD-N2-5eQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iw7-tL-QHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-775.20000000000005" y="35.532233883058474"/>
+            <point key="canvasLocation" x="903" y="36"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPhoto" width="137" height="137"/>
+    </resources>
 </document>

@@ -8,9 +8,17 @@
 
 import UIKit
 
-class RssItemViewController: UITableViewController {
+class RssItemViewController: UITableViewController, UINavigationControllerDelegate {
     
+    //MARK: Properties
     @IBOutlet weak var titleLabel: UINavigationItem!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var textLabel: UILabel!
+    
+    /*
+     This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
+     or constructed as part of adding a new meal.
+     */
+    var item: RssItem?
+    
 }
