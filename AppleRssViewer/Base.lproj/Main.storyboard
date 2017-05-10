@@ -57,7 +57,7 @@
                                     <outlet property="descriptionLabel" destination="Ktk-9y-3gi" id="iFQ-sT-Ja0"/>
                                     <outlet property="photoImageView" destination="q0I-UU-VYo" id="pW9-ba-ZpN"/>
                                     <outlet property="titleLabel" destination="t3B-fi-AXP" id="BFe-B3-Tb4"/>
-                                    <segue destination="RmC-ir-DRV" kind="show" id="xcY-Nj-gt8"/>
+                                    <segue destination="RmC-ir-DRV" kind="show" identifier="ShowDetail" id="xcY-Nj-gt8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,7 +72,7 @@
             </objects>
             <point key="canvasLocation" x="1103.2" y="35.532233883058474"/>
         </scene>
-        <!--Title-->
+        <!--Rss Item Title-->
         <scene sceneID="mHs-XT-JXw">
             <objects>
                 <viewController id="RmC-ir-DRV" customClass="RssItemViewController" customModule="AppleRssViewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="naC-28-bjg">
-                                <rect key="frame" x="0.0" y="72" width="375" height="348.5"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="367.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="YTr-n8-Dzy">
                                         <rect key="frame" x="27.5" y="0.0" width="320" height="320"/>
@@ -93,9 +93,15 @@
                                             <constraint firstAttribute="width" secondItem="YTr-n8-Dzy" secondAttribute="height" multiplier="1:1" id="b7J-a6-5aR"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYL-et-TQo">
+                                        <rect key="frame" x="174.5" y="328" width="26.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSX-fE-0JD">
-                                        <rect key="frame" x="171.5" y="328" width="32.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="174" y="350.5" width="27.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -109,10 +115,11 @@
                             <constraint firstItem="naC-28-bjg" firstAttribute="leading" secondItem="LUS-iJ-TRU" secondAttribute="leading" id="xG3-q2-8PF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="4Jm-z5-IcE"/>
+                    <navigationItem key="navigationItem" title="Rss Item Title" id="4Jm-z5-IcE"/>
                     <connections>
-                        <outlet property="photoImageView" destination="YTr-n8-Dzy" id="eA0-qN-UhZ"/>
-                        <outlet property="textLabel" destination="NSX-fE-0JD" id="U4q-o2-3ug"/>
+                        <outlet property="photoImageView" destination="YTr-n8-Dzy" id="2Eq-dj-AWD"/>
+                        <outlet property="textLabel" destination="NSX-fE-0JD" id="IiG-KQ-nJ7"/>
+                        <outlet property="titleLabel" destination="4Jm-z5-IcE" id="0Bc-sB-i7i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWY-Lg-LDs" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -15,10 +15,18 @@ class RssItemViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var textLabel: UILabel!
     
-    /*
-     This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
-     or constructed as part of adding a new meal.
-     */
     var item: RssItem?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        textLabel.lineBreakMode = .byWordWrapping
+        textLabel.numberOfLines = 0
+        
+        if let item = item {
+            titleLabel.title = item.title
+            photoImageView.image = item.image
+            textLabel.text = item.text
+        }
+    }
 }
