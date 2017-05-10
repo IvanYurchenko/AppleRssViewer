@@ -9,15 +9,24 @@
 import UIKit
 
 class RssTableViewController: UITableViewController {
-    var items = [RssItem]()
     
+    // MARK: Properties
+    var items = [RssItem]()
+    var myFeed : [Any] = []
+    var feedImgs: [AnyObject] = []
+    var url: URL!
+    
+    // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadItems()
+        url = URL(string: "http://feeds.skynews.com/feeds/rss/technology.xml")!
+        // url = URL(string: "http://developer.apple.com/news/rss/news.rss")!
+        
+        loadRss(url)
     }
     
-    // MARK: - Table view data source
+    // MARK: Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -49,12 +58,12 @@ class RssTableViewController: UITableViewController {
         formatter.timeStyle = .medium
         cell.dateLabel.text = formatter.string(from: item.date)
         
-        cell.photoImageView.image = item.image
+        cell.photoImageView.image = imageByIndex(index: indexPath.row)
         
         return cell
     }
     
-    //MARK: Navigation
+    // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         super.prepare(for: segue, sender: sender)
@@ -74,18 +83,38 @@ class RssTableViewController: UITableViewController {
             }
             
             let selectedItem = items[indexPath.row]
+            
+            selectedItem.image = imageByIndex(index: indexPath.row)
             rssItemViewController.item = selectedItem
             
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
     }
-
     
-    //MARK: Private methods
-    private func loadItems() {
-        items.removeAll()
-        items.append(RssItem(title: "hi", text: "hello world! here", date: Date(), image: #imageLiteral(resourceName: "defaultPhoto")))
-        items.append(RssItem(title: "hello", text: "hello world. this is a very long description here. tralalalallalalasdfsdfsdfalla lsadfl asldf lasdfl asdlf lasdf lasdfl asdlf saldf ladsfl lsadfl sdf lsdf lsdf lsdlf lsdfl sdlf ldsf lsadfl ldsf", date: Date(), image: #imageLiteral(resourceName: "defaultPhoto")))
+    
+    // MARK: Private methods
+    private func loadRss(_ data: URL) {
+        // XmlParserHelper instance/object/variable
+        let myParser : XmlParserHelper = XmlParserHelper().initWithURL(data) as! XmlParserHelper
+        
+        // Put feed in array
+        feedImgs = myParser.img as [AnyObject]
+        let foo = myParser.feeds as! [Dictionary<String, String>]
+        var counter = 0
+        items = foo.map { RssItem(title: $0["title"]!, text: $0["description"]!, date: Date(), image: #imageLiteral(resourceName: "defaultPhoto")
+            ) }
+        tableView.reloadData()
+    }
+    
+    private func imageByIndex(index: Int) -> UIImage {
+        if(feedImgs.count > 0) {
+            let url = NSURL(string:feedImgs[index] as! String)
+            let data = NSData(contentsOf:url! as URL)
+            let image = UIImage(data:data! as Data)
+            return image ?? #imageLiteral(resourceName: "defaultPhoto")
+        } else {
+            return #imageLiteral(resourceName: "defaultPhoto")
+        }
     }
 }
