@@ -44,6 +44,11 @@ class RssTableViewController: UITableViewController {
         cell.descriptionLabel.numberOfLines = 0
         cell.descriptionLabel.textAlignment = .natural
         
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .medium
+        cell.dateLabel.text = formatter.string(from: item.date)
+        
         cell.photoImageView.image = item.image
         
         return cell
@@ -80,7 +85,7 @@ class RssTableViewController: UITableViewController {
     //MARK: Private methods
     private func loadItems() {
         items.removeAll()
-        items.append(RssItem(title: "hi", text: "hello world! here", image: #imageLiteral(resourceName: "defaultPhoto")))
-        items.append(RssItem(title: "hello", text: "hello world. this is a very long description here. tralalalallalalasdfsdfsdfalla lsadfl asldf lasdfl asdlf lasdf lasdfl asdlf saldf ladsfl lsadfl sdf lsdf lsdf lsdlf lsdfl sdlf ldsf lsadfl ldsf", image: #imageLiteral(resourceName: "defaultPhoto")))
+        items.append(RssItem(title: "hi", text: "hello world! here", date: Date(), image: #imageLiteral(resourceName: "defaultPhoto")))
+        items.append(RssItem(title: "hello", text: "hello world. this is a very long description here. tralalalallalalasdfsdfsdfalla lsadfl asldf lasdfl asdlf lasdf lasdfl asdlf saldf ladsfl lsadfl sdf lsdf lsdf lsdlf lsdfl sdlf ldsf lsadfl ldsf", date: Date(), image: #imageLiteral(resourceName: "defaultPhoto")))
     }
 }

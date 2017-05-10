@@ -13,8 +13,9 @@ class RssItemViewController: UIViewController, UINavigationControllerDelegate {
     //MARK: Properties
     @IBOutlet weak var titleLabel: UINavigationItem!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
-    
+
     var item: RssItem?
     
     override func viewDidLoad() {
@@ -27,6 +28,11 @@ class RssItemViewController: UIViewController, UINavigationControllerDelegate {
             titleLabel.title = item.title
             photoImageView.image = item.image
             textLabel.text = item.text
+            
+            let formatter = DateFormatter()
+            formatter.dateStyle = .full
+            formatter.timeStyle = .long
+            dateLabel.text = formatter.string(from: item.date)
         }
     }
 }

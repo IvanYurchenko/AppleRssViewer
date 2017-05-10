@@ -12,10 +12,12 @@ class RssItem {
     var title: String
     var text: String
     var image: UIImage?
+    var date: Date
     
-    init(title: String, text: String, image: UIImage?) {
+    init(title: String, text: String, date: Date, image: UIImage?) {
         self.title = title
         self.text = text
+        self.date = date
         self.image = image
     }
 }

@@ -54,7 +54,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="Ktk-9y-3gi" id="iFQ-sT-Ja0"/>
+                                    <outlet property="dateLabel" destination="02M-Cv-hYA" id="pn7-BD-9Zb"/>
+                                    <outlet property="descriptionLabel" destination="Ktk-9y-3gi" id="HfB-UP-WY5"/>
                                     <outlet property="photoImageView" destination="q0I-UU-VYo" id="pW9-ba-ZpN"/>
                                     <outlet property="titleLabel" destination="t3B-fi-AXP" id="BFe-B3-Tb4"/>
                                     <segue destination="RmC-ir-DRV" kind="show" identifier="ShowDetail" id="xcY-Nj-gt8"/>
@@ -117,6 +118,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Rss Item Title" id="4Jm-z5-IcE"/>
                     <connections>
+                        <outlet property="dateLabel" destination="pYL-et-TQo" id="umd-Wr-lhI"/>
                         <outlet property="photoImageView" destination="YTr-n8-Dzy" id="2Eq-dj-AWD"/>
                         <outlet property="textLabel" destination="NSX-fE-0JD" id="IiG-KQ-nJ7"/>
                         <outlet property="titleLabel" destination="4Jm-z5-IcE" id="0Bc-sB-i7i"/>
