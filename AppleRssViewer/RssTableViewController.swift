@@ -14,13 +14,14 @@ class RssTableViewController: UITableViewController {
     var items = [RssItem]()
     var myFeed : [Any] = []
     var feedImgs: [AnyObject] = []
-    var url: URL!
     
     // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        url = URL(string: "http://feeds.skynews.com/feeds/rss/technology.xml")!
+        let url = URL(string: "http://feeds.skynews.com/feeds/rss/technology.xml")!
+        
+        // ------- Uncomment next line to view Apple News RSS: -------
         // url = URL(string: "http://developer.apple.com/news/rss/news.rss")!
         
         loadRss(url)
@@ -58,7 +59,7 @@ class RssTableViewController: UITableViewController {
         formatter.timeStyle = .medium
         cell.dateLabel.text = formatter.string(from: item.date)
         
-        cell.photoImageView.image = imageByIndex(index: indexPath.row)
+        cell.photoImageView.image = item.image
         
         return cell
     }
@@ -84,7 +85,6 @@ class RssTableViewController: UITableViewController {
             
             let selectedItem = items[indexPath.row]
             
-            selectedItem.image = imageByIndex(index: indexPath.row)
             rssItemViewController.item = selectedItem
             
         default:
@@ -102,7 +102,9 @@ class RssTableViewController: UITableViewController {
         feedImgs = myParser.img as [AnyObject]
         let foo = myParser.feeds as! [Dictionary<String, String>]
         var counter = 0
-        items = foo.map { RssItem(title: $0["title"]!, text: $0["description"]!, date: Date(), image: #imageLiteral(resourceName: "defaultPhoto")
+        items = foo.map { RssItem(title: $0["title"]!, text: $0["description"]!, date: Date(), image: ({
+            counter += 1
+            return imageByIndex(index: (counter - 1))})()
             ) }
         tableView.reloadData()
     }
