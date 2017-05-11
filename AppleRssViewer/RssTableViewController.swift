@@ -12,8 +12,7 @@ class RssTableViewController: UITableViewController {
     
     // MARK: Properties
     var items = [RssItem]()
-    var myFeed : [Any] = []
-    var feedImgs: [AnyObject] = []
+    var imageUrls: [String] = []
     
     // MARK: viewDidLoad()
     override func viewDidLoad() {
@@ -91,22 +90,23 @@ class RssTableViewController: UITableViewController {
     // MARK: Private methods
     private func loadRss(_ data: URL) {
         // XmlParserHelper instance/object/variable
-        let myParser : XmlParserHelper = XmlParserHelper().initWithURL(data) as! XmlParserHelper
+        let myParser = XmlParserHelper(data)
         
         // Put feed in array
-        feedImgs = myParser.img as [AnyObject]
-        var counter = 0
-        items = myParser.feeds.map { RssItem(title: $0.title, text: $0.text, date: $0.date, image: ({
-                counter += 1
-                return imageByIndex(index: (counter - 1))})()
-            ) }
+        imageUrls = myParser.imageUrls
+        items = myParser.items
+        
+        for i in 0...(items.count - 1) {
+            items[i].image = imageByIndex(index: i)
+        }
+        
         tableView.reloadData()
     }
     
     private func imageByIndex(index: Int) -> UIImage {
-        if(feedImgs.count > 0) {
-            let url = NSURL(string:feedImgs[index] as! String)
-            let data = NSData(contentsOf:url! as URL)
+        if(imageUrls.count > 0) {
+            let url = NSURL(string: imageUrls[index])
+            let data = NSData(contentsOf: url! as URL)
             let image = UIImage(data:data! as Data)
             return image ?? #imageLiteral(resourceName: "defaultPhoto")
         } else {
