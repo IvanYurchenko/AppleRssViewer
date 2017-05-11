@@ -11,8 +11,7 @@ import Foundation
 class XmlParserHelper: NSObject, XMLParserDelegate {
     
     var parser = XMLParser()
-    var feeds: [Any] = [Any]()
-    var elements: [String:String] = [String:String]()
+    var feeds: [RssItem] = [RssItem]()
     var element = String()
     var title = String()
     var link = String()
@@ -39,7 +38,6 @@ class XmlParserHelper: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         element = elementName
         if (element == "item") {
-            elements = [:]
             title = ""
             link = ""
             descriptionString = ""
@@ -53,25 +51,16 @@ class XmlParserHelper: NSObject, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
-        if (elementName == "item") {
-            if title != "" {
-                elements["title"] = title
-            }
-            
-            if link != "" {
-                elements["link"] = link
-            }
-            
-            if descriptionString != "" {
-                elements["description"] = descriptionString
-            }
-            
-            if date != "" {
-                elements["pubDate"] = date
-            }
-            
-            feeds.append(elements)
+        guard elementName == "item",
+            title != "",
+            link != "",
+            descriptionString != "",
+            date != "" else {
+                return
         }
+        
+        let item = RssItem(title: title, text: descriptionString, date: date, image: nil)
+        feeds.append(item)
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {

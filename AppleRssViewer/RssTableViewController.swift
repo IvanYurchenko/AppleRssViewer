@@ -53,12 +53,7 @@ class RssTableViewController: UITableViewController {
         cell.descriptionLabel.lineBreakMode = .byTruncatingTail
         cell.descriptionLabel.numberOfLines = 0
         cell.descriptionLabel.textAlignment = .natural
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .medium
-        cell.dateLabel.text = formatter.string(from: item.date)
-        
+        cell.dateLabel.text = item.date
         cell.photoImageView.image = item.image
         
         return cell
@@ -100,11 +95,10 @@ class RssTableViewController: UITableViewController {
         
         // Put feed in array
         feedImgs = myParser.img as [AnyObject]
-        let foo = myParser.feeds as! [Dictionary<String, String>]
         var counter = 0
-        items = foo.map { RssItem(title: $0["title"]!, text: $0["description"]!, date: Date(), image: ({
-            counter += 1
-            return imageByIndex(index: (counter - 1))})()
+        items = myParser.feeds.map { RssItem(title: $0.title, text: $0.text, date: $0.date, image: ({
+                counter += 1
+                return imageByIndex(index: (counter - 1))})()
             ) }
         tableView.reloadData()
     }
