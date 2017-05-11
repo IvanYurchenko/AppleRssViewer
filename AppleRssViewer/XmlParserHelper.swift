@@ -19,7 +19,7 @@ class XmlParserHelper: NSObject, XMLParserDelegate {
     var descriptionString = String()
     var date = String()
     
-    // initilise parser
+    // initialize parser
     func initWithURL(_ url :URL) -> AnyObject {
         startParse(url)
         return self
@@ -37,15 +37,33 @@ class XmlParserHelper: NSObject, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         element = elementName
-        if (element == "item") {
+        switch element {
+        case "item":
             title = ""
             link = ""
             descriptionString = ""
             date = ""
-        } else if (element == "enclosure") {
+        case "enclosure":
             if let urlString = attributeDict["url"] {
                 img.append(urlString as AnyObject)
             }
+        default:
+            break
+        }
+    }
+    
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        switch element {
+        case "title":
+            title.append(string)
+        case "link":
+            link.append(string)
+        case "description":
+            descriptionString.append(string)
+        case "pubDate":
+            date.append(string)
+        default:
+            break
         }
     }
     
@@ -55,23 +73,10 @@ class XmlParserHelper: NSObject, XMLParserDelegate {
             title != "",
             link != "",
             descriptionString != "",
-            date != "" else {
-                return
-        }
+            date != ""
+            else { return }
         
         let item = RssItem(title: title, text: descriptionString, date: date, image: nil)
         feeds.append(item)
-    }
-    
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
-        if (element == "title") {
-            title.append(string)
-        } else if (element == "link") {
-            link.append(string)
-        } else if (element == "description") {
-            descriptionString.append(string)
-        } else if (element == "pubDate") {
-            date.append(string)
-        }
     }
 }
