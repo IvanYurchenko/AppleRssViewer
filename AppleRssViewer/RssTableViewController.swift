@@ -23,7 +23,7 @@ class RssTableViewController: UITableViewController {
         // ------- Uncomment next line to view Apple News RSS: -------
         // url = URL(string: "http://developer.apple.com/news/rss/news.rss")!
         
-        loadRss(url)
+        loadData(url)
     }
     
     // MARK: Table view data source
@@ -46,13 +46,19 @@ class RssTableViewController: UITableViewController {
         // Fetches the appropriate item for the data source layout.
         let item = items[indexPath.row]
         
+        // Configure titleLabel from item's data
         cell.titleLabel.text = item.title
         
+        // Configure descriptionLabel from item's data
         cell.descriptionLabel.text = item.text
         cell.descriptionLabel.lineBreakMode = .byTruncatingTail
         cell.descriptionLabel.numberOfLines = 0
         cell.descriptionLabel.textAlignment = .natural
+        
+        // Configure dateLabel from item's data
         cell.dateLabel.text = item.date
+        
+        // Configure photoImageView from item's data
         cell.photoImageView.image = item.image
         
         return cell
@@ -77,8 +83,10 @@ class RssTableViewController: UITableViewController {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
+            // Get an item that was selected
             let selectedItem = items[indexPath.row]
             
+            // Pass the selected item to the viewController so we can see it's details
             rssItemViewController.item = selectedItem
             
         default:
@@ -88,14 +96,18 @@ class RssTableViewController: UITableViewController {
     
     
     // MARK: Private methods
-    private func loadRss(_ data: URL) {
-        // XmlParserHelper instance/object/variable
+    /**
+        Parses the XML from given URL to items collection and downloads appropriate images for items.
+    */
+    private func loadData(_ data: URL) {
+        // Create an XmlParserHelper that will start process data
         let myParser = XmlParserHelper(data)
         
-        // Put feed in array
+        // Get results from parser
         imageUrls = myParser.imageUrls
         items = myParser.items
         
+        // Retrieve images from URL's for each item individually
         for i in 0...(items.count - 1) {
             items[i].image = imageByIndex(index: i)
         }
@@ -103,6 +115,9 @@ class RssTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    /**
+        Retrieves image by URL from imageUrls array. If there's no URLs or if an image can not be retrieved return a default image.
+     */
     private func imageByIndex(index: Int) -> UIImage {
         if(imageUrls.count > 0) {
             let url = NSURL(string: imageUrls[index])
