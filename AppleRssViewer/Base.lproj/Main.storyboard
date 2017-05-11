@@ -67,7 +67,13 @@
                             <outlet property="delegate" destination="fi7-8y-brR" id="fHP-WG-yY7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Feed" id="QSa-4m-1SY"/>
+                    <navigationItem key="navigationItem" title="Feed" id="QSa-4m-1SY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="LQc-Fb-KuS">
+                            <connections>
+                                <action selector="refreshItems:" destination="fi7-8y-brR" id="7Dr-B0-cSf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eyx-4H-Iua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

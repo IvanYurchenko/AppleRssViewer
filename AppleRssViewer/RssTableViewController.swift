@@ -18,17 +18,17 @@ class RssTableViewController: UITableViewController {
     // Core Data context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    let url = URL(string: "http://feeds.skynews.com/feeds/rss/technology.xml")!
+    
     // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let url = URL(string: "http://feeds.skynews.com/feeds/rss/technology.xml")!
         
         // ------- Uncomment next line to view Apple News RSS: -------
         // url = URL(string: "http://developer.apple.com/news/rss/news.rss")!
         
         // Loads data from given URL and displays it in the table
-        loadData(url)
+        loadRssItems(url)
     }
     
     // MARK: Table view data source
@@ -67,6 +67,12 @@ class RssTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: Actions
+    
+    @IBAction func refreshItems(_ sender: UIBarButtonItem) {
+        loadRssItems(url)
+    }
+    
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -102,7 +108,7 @@ class RssTableViewController: UITableViewController {
     /**
      Parses the XML from given URL to items collection and downloads appropriate images for items.
      */
-    private func loadData(_ data: URL) {
+    private func loadRssItems(_ data: URL) {
         // Create an XmlParserHelper that will start process data
         let myParser = XmlParserHelper(data)
         
