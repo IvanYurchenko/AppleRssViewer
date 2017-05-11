@@ -23,6 +23,7 @@ class RssTableViewController: UITableViewController {
         // ------- Uncomment next line to view Apple News RSS: -------
         // url = URL(string: "http://developer.apple.com/news/rss/news.rss")!
         
+        // Loads data from given URL and displays it in the table
         loadData(url)
     }
     
@@ -51,8 +52,6 @@ class RssTableViewController: UITableViewController {
         
         // Configure descriptionLabel from item's data
         cell.descriptionLabel.text = item.text
-        cell.descriptionLabel.lineBreakMode = .byTruncatingTail
-        cell.descriptionLabel.numberOfLines = 0
         cell.descriptionLabel.textAlignment = .natural
         
         // Configure dateLabel from item's data

@@ -8,12 +8,18 @@
 
 import UIKit
 
+/**
+ An item that represents an RSS feed unit.
+ */
 class RssItem {
+    
+    // MARK: Properties
     var title: String
     var text: String
     var image: UIImage?
     var date: String
     
+    // MARK: Initializer
     init(title: String, text: String, date: String, image: UIImage?) {
         self.title = title
         self.text = text

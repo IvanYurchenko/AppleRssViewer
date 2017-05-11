@@ -10,20 +10,20 @@ import UIKit
 
 class RssItemViewController: UIViewController, UINavigationControllerDelegate {
     
-    //MARK: Properties
+    // MARK: Properties
     @IBOutlet weak var titleLabel: UINavigationItem!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
 
+    // The item that will be passed by RssTableViewController to show its details
     var item: RssItem?
     
+    // MARK: Initializer
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textLabel.lineBreakMode = .byWordWrapping
-        textLabel.numberOfLines = 0
-        
+        // Show details of the retrieved item
         if let item = item {
             titleLabel.title = item.title
             photoImageView.image = item.image
