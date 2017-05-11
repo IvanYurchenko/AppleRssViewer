@@ -100,8 +100,8 @@ class RssTableViewController: UITableViewController {
     
     // MARK: Private methods
     /**
-        Parses the XML from given URL to items collection and downloads appropriate images for items.
-    */
+     Parses the XML from given URL to items collection and downloads appropriate images for items.
+     */
     private func loadData(_ data: URL) {
         // Create an XmlParserHelper that will start process data
         let myParser = XmlParserHelper(data)
@@ -132,15 +132,15 @@ class RssTableViewController: UITableViewController {
         
         tableView.reloadData()
     }
-
+    
     /**
-        Retrieves image by URL from imageUrls array. If there's no URLs or if an image can not be retrieved return a default image.
+     Retrieves image by URL from imageUrls array. If there's no URLs or if an image can not be retrieved return a default image.
      */
     private func imageByIndex(index: Int) -> UIImage {
         if(imageUrls.count > 0) {
             let url = NSURL(string: imageUrls[index])
             let data = NSData(contentsOf: url! as URL)
-            let image = UIImage(data:data! as Data)
+            let image = UIImage(data: data! as Data)
             return image ?? #imageLiteral(resourceName: "defaultPhoto")
         } else {
             return #imageLiteral(resourceName: "defaultPhoto")
@@ -163,7 +163,14 @@ class RssTableViewController: UITableViewController {
             dataItem.title = item.title
             dataItem.date = item.date
             dataItem.text = item.text
-            dataItem.image = item.image
+            
+            // Convert image to binary data and store it in the DataItem
+            let image = imageByIndex(index: i)
+            if image != #imageLiteral(resourceName: "defaultPhoto") {
+                let imageData = NSData(data: UIImageJPEGRepresentation(image, 1.0)!)
+                (dataItem as NSManagedObject).setValue(imageData, forKey: "image")
+                dataItem.image = imageData
+            }
             
             // Save the item to Core Data
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -176,9 +183,20 @@ class RssTableViewController: UITableViewController {
     private func loadData() {
         do {
             let dataItems = try context.fetch(DataItem.fetchRequest()) as [DataItem]
+            
+            // Clear items list
             items.removeAll()
+            
             for x in dataItems {
-                let item = RssItem(title: x.title!, text: x.text!, date: x.date!, image: x.image as? UIImage)
+                // Retrieve item's properties and set them accordingly
+                let item = RssItem(title: x.title!, text: x.text!, date: x.date!, image: nil)
+                
+                // If an image exists restore it from binary data
+                if let image = x.image {
+                    item.image =  UIImage(data: (image as NSData) as Data)
+                }
+                
+                // Append the item to the list
                 items.append(item)
             }
         } catch {
@@ -190,12 +208,14 @@ class RssTableViewController: UITableViewController {
      Deletes all Rss Items from the Core Data.
      */
     private func deleteData() {
+        // Delete all objects from the context
         if let result = try? context.fetch(DataItem.fetchRequest()) as [DataItem] {
             for object in result {
                 context.delete(object)
             }
         }
         
+        // Save the context
         do {
             try context.save()
         } catch {

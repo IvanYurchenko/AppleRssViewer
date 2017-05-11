@@ -10,11 +10,11 @@
 		872BF56D1EC192F300C32658 /* RssTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872BF56C1EC192F300C32658 /* RssTableViewCell.swift */; };
 		872BF56F1EC3549D00C32658 /* XmlParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872BF56E1EC3549D00C32658 /* XmlParserHelper.swift */; };
 		87821BBC1EC3FC82000A646C /* AppleRssViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87821BBA1EC3FC82000A646C /* AppleRssViewer.xcdatamodeld */; };
-		87821BC71EC3FFB5000A646C /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87821BC51EC3FFB5000A646C /* DataItem.swift */; };
-		87821BC81EC3FFB5000A646C /* DataItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87821BC61EC3FFB5000A646C /* DataItem+CoreDataProperties.swift */; };
 		878359B51EC18A1800E84A3F /* RssTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878359B41EC18A1800E84A3F /* RssTableViewController.swift */; };
 		878359B71EC18A4C00E84A3F /* RssItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878359B61EC18A4C00E84A3F /* RssItemViewController.swift */; };
 		878359B91EC18A5800E84A3F /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878359B81EC18A5800E84A3F /* RssItem.swift */; };
+		87BAA2841EC47B2C00E76EE7 /* DataItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BAA2821EC47B2C00E76EE7 /* DataItem+CoreDataClass.swift */; };
+		87BAA2851EC47B2C00E76EE7 /* DataItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BAA2831EC47B2C00E76EE7 /* DataItem+CoreDataProperties.swift */; };
 		87D788A61EC170C900D46674 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D788A51EC170C900D46674 /* AppDelegate.swift */; };
 		87D788AB1EC170C900D46674 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D788A91EC170C900D46674 /* Main.storyboard */; };
 		87D788AD1EC170C900D46674 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87D788AC1EC170C900D46674 /* Assets.xcassets */; };
@@ -25,11 +25,11 @@
 		872BF56C1EC192F300C32658 /* RssTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssTableViewCell.swift; sourceTree = "<group>"; };
 		872BF56E1EC3549D00C32658 /* XmlParserHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmlParserHelper.swift; sourceTree = "<group>"; };
 		87821BBB1EC3FC82000A646C /* AppleRssViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppleRssViewer.xcdatamodel; sourceTree = "<group>"; };
-		87821BC51EC3FFB5000A646C /* DataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
-		87821BC61EC3FFB5000A646C /* DataItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		878359B41EC18A1800E84A3F /* RssTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssTableViewController.swift; sourceTree = "<group>"; };
 		878359B61EC18A4C00E84A3F /* RssItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssItemViewController.swift; sourceTree = "<group>"; };
 		878359B81EC18A5800E84A3F /* RssItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
+		87BAA2821EC47B2C00E76EE7 /* DataItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		87BAA2831EC47B2C00E76EE7 /* DataItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		87D788A21EC170C900D46674 /* AppleRssViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleRssViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D788A51EC170C900D46674 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87D788AA1EC170C900D46674 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,8 +79,8 @@
 				87D788AC1EC170C900D46674 /* Assets.xcassets */,
 				87D788B11EC170C900D46674 /* Info.plist */,
 				87821BBA1EC3FC82000A646C /* AppleRssViewer.xcdatamodeld */,
-				87821BC51EC3FFB5000A646C /* DataItem.swift */,
-				87821BC61EC3FFB5000A646C /* DataItem+CoreDataProperties.swift */,
+				87BAA2821EC47B2C00E76EE7 /* DataItem+CoreDataClass.swift */,
+				87BAA2831EC47B2C00E76EE7 /* DataItem+CoreDataProperties.swift */,
 			);
 			path = AppleRssViewer;
 			sourceTree = "<group>";
@@ -162,9 +162,9 @@
 				878359B51EC18A1800E84A3F /* RssTableViewController.swift in Sources */,
 				872BF56F1EC3549D00C32658 /* XmlParserHelper.swift in Sources */,
 				87821BBC1EC3FC82000A646C /* AppleRssViewer.xcdatamodeld in Sources */,
-				87821BC71EC3FFB5000A646C /* DataItem.swift in Sources */,
+				87BAA2841EC47B2C00E76EE7 /* DataItem+CoreDataClass.swift in Sources */,
 				872BF56D1EC192F300C32658 /* RssTableViewCell.swift in Sources */,
-				87821BC81EC3FFB5000A646C /* DataItem+CoreDataProperties.swift in Sources */,
+				87BAA2851EC47B2C00E76EE7 /* DataItem+CoreDataProperties.swift in Sources */,
 				87D788A61EC170C900D46674 /* AppDelegate.swift in Sources */,
 				878359B91EC18A5800E84A3F /* RssItem.swift in Sources */,
 			);

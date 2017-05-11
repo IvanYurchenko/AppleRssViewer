@@ -16,9 +16,9 @@ extension DataItem {
         return NSFetchRequest<DataItem>(entityName: "DataItem")
     }
 
-    @NSManaged public var title: String?
     @NSManaged public var date: String?
+    @NSManaged public var image: NSData?
     @NSManaged public var text: String?
-    @NSManaged public var image: NSObject?
+    @NSManaged public var title: String?
 
 }
