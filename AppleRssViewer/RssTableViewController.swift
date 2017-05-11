@@ -118,6 +118,13 @@ class RssTableViewController: UITableViewController {
             loadData()
         }
         
+        // Uncomment next line if you want to clear stored data:
+        // deleteData()
+        
+        guard items.count > 0 else {
+            return
+        }
+        
         // Retrieve images from URL's for each item individually
         for i in 0...(items.count - 1) {
             items[i].image = imageByIndex(index: i)
@@ -175,7 +182,24 @@ class RssTableViewController: UITableViewController {
                 items.append(item)
             }
         } catch {
-            print("Fetching Failed")
+            print("Fetching failed")
+        }
+    }
+    
+    /**
+     Deletes all Rss Items from the Core Data.
+     */
+    private func deleteData() {
+        if let result = try? context.fetch(DataItem.fetchRequest()) as [DataItem] {
+            for object in result {
+                context.delete(object)
+            }
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print("Deleting failed")
         }
     }
 }
