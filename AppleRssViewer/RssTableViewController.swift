@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class RssTableViewController: UITableViewController {
     
     // MARK: Properties
     var items = [RssItem]()
     var imageUrls: [String] = []
+    
+    // Core Data context
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // MARK: viewDidLoad()
     override func viewDidLoad() {
@@ -106,6 +110,14 @@ class RssTableViewController: UITableViewController {
         imageUrls = myParser.imageUrls
         items = myParser.items
         
+        if(items.count > 0) {
+            // Save items to CoreData for further access in offline mode
+            saveData()
+        } else {
+            // Restore items from CoreData for offline mode
+            loadData()
+        }
+        
         // Retrieve images from URL's for each item individually
         for i in 0...(items.count - 1) {
             items[i].image = imageByIndex(index: i)
@@ -113,7 +125,7 @@ class RssTableViewController: UITableViewController {
         
         tableView.reloadData()
     }
-    
+
     /**
         Retrieves image by URL from imageUrls array. If there's no URLs or if an image can not be retrieved return a default image.
      */
@@ -125,6 +137,45 @@ class RssTableViewController: UITableViewController {
             return image ?? #imageLiteral(resourceName: "defaultPhoto")
         } else {
             return #imageLiteral(resourceName: "defaultPhoto")
+        }
+    }
+    
+    // MARK: Core Data
+    
+    /**
+     Saves all Rss Items to the Core Data.
+     */
+    private func saveData() {
+        for i in 0...(items.count - 1) {
+            let item = items[i]
+            
+            // Link item and context
+            let dataItem = DataItem(context: context)
+            
+            // Set item's properties
+            dataItem.title = item.title
+            dataItem.date = item.date
+            dataItem.text = item.text
+            dataItem.image = item.image
+            
+            // Save the item to Core Data
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        }
+    }
+    
+    /**
+     Restores all Rss Items from the Core Data.
+     */
+    private func loadData() {
+        do {
+            let dataItems = try context.fetch(DataItem.fetchRequest()) as [DataItem]
+            items.removeAll()
+            for x in dataItems {
+                let item = RssItem(title: x.title!, text: x.text!, date: x.date!, image: x.image as? UIImage)
+                items.append(item)
+            }
+        } catch {
+            print("Fetching Failed")
         }
     }
 }
